@@ -6,7 +6,7 @@ public class User
 {
     [Key]
     public int UserId { get; set; }
-    
+     
     [Required]
     [MaxLength(50)]
     public string Username { get; set; }
@@ -25,12 +25,12 @@ public class User
     public DateTime DateCreated { get; set; }
     
     
-    public ICollection<Follow> Followers { get; set; }
+    public virtual ICollection<Follow> Followers { get; set; }
     
     
-    public ICollection<Follow> Following { get; set; }
+    public virtual ICollection<Follow> Following { get; set; }
     
     
-    public ICollection<Post> Posts { get; set; }
+    public virtual ICollection<Post> Posts { get; set; }
     
 }
