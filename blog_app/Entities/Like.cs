@@ -6,6 +6,7 @@ namespace blog_app.Entities;
 public class Like
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int LikeId { get; set; }
     
     [ForeignKey("Post")]
@@ -17,6 +18,6 @@ public class Like
     [ForeignKey("User")]
     public int UserId { get; set; }
     
-    [NotMapped]
+    
     public User User { get; set; } = null!;
 }

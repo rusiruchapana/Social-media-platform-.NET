@@ -6,6 +6,7 @@ namespace blog_app.Entities;
 public class Comment
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int CommentId { get; set; }
     
     [ForeignKey("Post")]
