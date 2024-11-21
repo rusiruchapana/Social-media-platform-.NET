@@ -2,7 +2,7 @@ using blog_app.Entities;
 
 namespace blog_app.DTO.Response;
 
-public class PostResponseDTO
+public class PostsResponseDTO
 {
     public int PostId { get; set; }
     public int UserId { get; set; }

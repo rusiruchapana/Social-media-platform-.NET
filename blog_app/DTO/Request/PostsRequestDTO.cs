@@ -2,7 +2,7 @@ using blog_app.Entities;
 
 namespace blog_app.DTO.Request;
 
-public class PostRequestDTO
+public class PostsRequestDTO
 {
     public int UserId { get; set; }
     public string Content { get; set; } = null!;
