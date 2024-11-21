@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace blog_app.Controllers;
 
-public class PostsController
+[Route("api/[controller]")]
+[ApiController]
+public class PostsController: Controller
 {
     
 }
