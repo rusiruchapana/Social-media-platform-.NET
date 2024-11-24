@@ -1,3 +1,5 @@
+using BlogApp.DTOs.Request;
+using BlogApp.DTOs.Response;
 using BlogApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,5 +15,11 @@ public class PostsController: ControllerBase
     {
         _postsService = postsService;
     }
-    
+
+    [HttpPost]
+    public async Task<IActionResult> CreatePost(PostsRequestDTO postsRequestDto)
+    {
+        PostsResponseDTO postsResponseDto = await _postsService.CreatePost(postsRequestDto);
+        return Created("" , postsResponseDto);
+    }
 }

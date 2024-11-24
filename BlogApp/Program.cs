@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IPostsService , PostsService>();
 builder.Services.AddScoped<IPostsRepository , PostsRepository>();
+builder.Services.AddAutoMapper(typeof(Program));
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
