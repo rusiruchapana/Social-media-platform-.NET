@@ -27,4 +27,11 @@ public class PostsService: IPostsService
         
         return postsResponseDto;
     }
+
+    public async Task<IEnumerable<PostsResponseDTO>> GetAllPosts()
+    {
+        IEnumerable<Post> posts = await _postsRepository.GetAllPosts();
+        IEnumerable<PostsResponseDTO> postsResponseDtos = _mapper.Map<IEnumerable<PostsResponseDTO>>(posts);
+        return postsResponseDtos;
+    }
 }

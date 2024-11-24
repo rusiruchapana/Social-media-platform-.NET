@@ -22,4 +22,12 @@ public class PostsController: ControllerBase
         PostsResponseDTO postsResponseDto = await _postsService.CreatePost(postsRequestDto);
         return Created("" , postsResponseDto);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllPosts()
+    {
+        IEnumerable<PostsResponseDTO> postsResponseDtos = await _postsService.GetAllPosts();
+        return Ok(postsResponseDtos);
+    }
+
 }

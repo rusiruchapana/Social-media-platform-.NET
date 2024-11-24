@@ -1,6 +1,7 @@
 using BlogApp.Data;
 using BlogApp.Models;
 using BlogApp.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Repositories;
 
@@ -18,5 +19,11 @@ public class PostsRepository: IPostsRepository
         _context.Posts.Add(post);
         await _context.SaveChangesAsync();
         return post;
+    }
+
+    public async Task<IEnumerable<Post>> GetAllPosts()
+    {
+        IEnumerable<Post> posts = await _context.Posts.ToListAsync();
+        return posts;
     }
 }
