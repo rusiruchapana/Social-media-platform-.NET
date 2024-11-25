@@ -32,4 +32,18 @@ public class PostsRepository: IPostsRepository
         Post post = await _context.Posts.Include(p => p.Comments).FirstOrDefaultAsync(p => p.Id == id);
         return post;
     }
+
+    public async Task<Post> UpdatePost(int id, Post post)
+    {
+        Post check = await _context.Posts.FirstOrDefaultAsync(p => p.Id == id);
+        if (check == null)
+            throw new KeyNotFoundException($"Post with ID {id} was not found.");
+
+        check.Title = post.Title;
+        check.Content = post.Content;
+
+        _context.Posts.Update(check);
+        await _context.SaveChangesAsync();
+        return check;
+    }
 }

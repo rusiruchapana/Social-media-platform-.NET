@@ -41,4 +41,12 @@ public class PostsService: IPostsService
         PostsResponseDTO postsResponseDto = _mapper.Map<PostsResponseDTO>(post);
         return postsResponseDto;
     }
+
+    public async Task<PostsResponseDTO> UpdatePost(int id, PostsRequestDTO postsRequestDto)
+    {
+        Post post = _mapper.Map<Post>(postsRequestDto);
+        Post updatedPost = await _postsRepository.UpdatePost(id , post);
+        PostsResponseDTO postsResponseDto = _mapper.Map<PostsResponseDTO>(updatedPost);
+        return postsResponseDto;
+    }
 }

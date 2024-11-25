@@ -36,7 +36,12 @@ public class PostsController: ControllerBase
         PostsResponseDTO postsResponseDto = await _postsService.GetPostById(id);
         return Ok(postsResponseDto);
     }
-    
-    
+
+    [HttpPut]
+    public async Task<IActionResult> UpdatePost(int id , PostsRequestDTO postsRequestDto)
+    {
+        PostsResponseDTO postsResponseDto = await _postsService.UpdatePost(id , postsRequestDto);
+        return Ok(postsResponseDto);
+    }
 
 }

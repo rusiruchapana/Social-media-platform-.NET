@@ -9,4 +9,5 @@ public interface IPostsService
 
     Task<IEnumerable<PostsResponseDTO>> GetAllPosts();
     Task<PostsResponseDTO> GetPostById(int id);
+    Task<PostsResponseDTO> UpdatePost(int id, PostsRequestDTO postsRequestDto);
 }
