@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace BlogApp.Models;
 
@@ -19,6 +20,6 @@ public class Comment
     [ForeignKey(nameof(Post))]
     public int PostId { get; set; }
     
-    
+    [JsonIgnore]
     public Post Post { get; set; }
 }
