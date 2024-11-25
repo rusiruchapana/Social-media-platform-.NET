@@ -9,4 +9,6 @@ public interface ICommentsService
 
     Task<IEnumerable<CommentsResponseDTO>> GetComments(int postId);
     Task<CommentsResponseDTO> GetCommentById(int postId, int commentId);
+    Task<CommentsResponseDTO> UpdateComment(int postId, int commentId, CommentsRequestDTO commentsRequestDto);
+    Task<bool> DeleteComment(int postId, int commentId);
 }

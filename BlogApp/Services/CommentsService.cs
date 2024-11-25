@@ -40,4 +40,18 @@ public class CommentsService: ICommentsService
         CommentsResponseDTO commentsResponseDto = _mapper.Map<CommentsResponseDTO>(comment);
         return commentsResponseDto;
     }
+
+    public async Task<CommentsResponseDTO> UpdateComment(int postId, int commentId, CommentsRequestDTO commentsRequestDto)
+    {
+        Comment convertComment = _mapper.Map<Comment>(commentsRequestDto); 
+        Comment comment = await _commentsRepository.UpdateComment(postId, commentId, convertComment);
+        CommentsResponseDTO commentsResponseDto = _mapper.Map<CommentsResponseDTO>(comment);
+        return commentsResponseDto;
+    }
+
+    public async Task<bool> DeleteComment(int postId, int commentId)
+    {
+        bool isDeleted = await _commentsRepository.DeleteComment(postId , commentId);
+        return isDeleted;
+    }
 }
