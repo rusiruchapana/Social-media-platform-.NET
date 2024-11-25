@@ -30,4 +30,13 @@ public class CommentsController: ControllerBase
         return Ok(commentsResponseDtos);
     }
 
+    [HttpGet("{postId}/comments/{commentId}")]
+    public async Task<IActionResult> GetCommentById(int postId, int commentId)
+    {
+        CommentsResponseDTO commentsResponseDto = await _commentsService.GetCommentById(postId , commentId);
+        return Ok(commentsResponseDto);
+    }
+
+
+
 }

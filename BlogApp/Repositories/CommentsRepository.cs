@@ -26,4 +26,10 @@ public class CommentsRepository: ICommentsRepository
         IEnumerable<Comment> comments = await _context.Comments.Where(c => c.PostId == postId).ToListAsync();
         return comments;
     }
+
+    public  async Task<Comment> GetCommentById(int postId, int commentId)
+    {
+        Comment comment = await _context.Comments.Where(c => c.PostId == postId && c.Id == commentId).FirstOrDefaultAsync();
+        return comment;
+    }
 }
