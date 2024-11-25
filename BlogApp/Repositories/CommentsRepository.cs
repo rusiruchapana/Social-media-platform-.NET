@@ -1,6 +1,7 @@
 using BlogApp.Data;
 using BlogApp.Models;
 using BlogApp.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Repositories;
 
@@ -18,5 +19,11 @@ public class CommentsRepository: ICommentsRepository
         _context.Comments.Add(comment);
         await _context.SaveChangesAsync();
         return comment;
+    }
+
+    public async Task<IEnumerable<Comment>> GetComments(int postId)
+    {
+        IEnumerable<Comment> comments = await _context.Comments.Where(c => c.PostId == postId).ToListAsync();
+        return comments;
     }
 }

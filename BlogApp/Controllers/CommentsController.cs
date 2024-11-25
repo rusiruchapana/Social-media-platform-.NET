@@ -23,4 +23,11 @@ public class CommentsController: ControllerBase
         return Created("" , commentsResponseDto);
     }
 
+    [HttpGet("{postId}")]
+    public async Task<IActionResult> GetComments(int postId)
+    {
+        IEnumerable<CommentsResponseDTO> commentsResponseDtos = await _commentsService.GetComments(postId);
+        return Ok(commentsResponseDtos);
+    }
+
 }

@@ -26,4 +26,11 @@ public class CommentsService: ICommentsService
         CommentsResponseDTO commentsResponseDto = _mapper.Map<CommentsResponseDTO>(savedComment);
         return commentsResponseDto;
     }
+
+    public async Task<IEnumerable<CommentsResponseDTO>> GetComments(int postId)
+    {
+        IEnumerable<Comment> comments = await _commentsRepository.GetComments(postId);
+        IEnumerable<CommentsResponseDTO> commentsResponseDtos = _mapper.Map<IEnumerable<CommentsResponseDTO>>(comments);
+        return commentsResponseDtos;
+    }
 }
