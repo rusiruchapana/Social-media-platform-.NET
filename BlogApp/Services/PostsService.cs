@@ -49,4 +49,10 @@ public class PostsService: IPostsService
         PostsResponseDTO postsResponseDto = _mapper.Map<PostsResponseDTO>(updatedPost);
         return postsResponseDto;
     }
+
+    public async Task<bool> DeletePost(int id)
+    {
+        bool isDeleted = await _postsRepository.DeletePost(id);
+        return isDeleted;
+    }
 }

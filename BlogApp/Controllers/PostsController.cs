@@ -44,4 +44,15 @@ public class PostsController: ControllerBase
         return Ok(postsResponseDto);
     }
 
+    [HttpDelete]
+    public async Task<IActionResult> DeletePost(int id)
+    {
+        bool isDeleted = await _postsService.DeletePost(id);
+        if (isDeleted == false)
+            return BadRequest("No post was found");
+            
+        return Ok("Post deleted successfully");
+        
+    }
+
 }
