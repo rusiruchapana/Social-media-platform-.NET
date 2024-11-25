@@ -8,4 +8,5 @@ public interface IPostsService
     Task<PostsResponseDTO> CreatePost(PostsRequestDTO postsRequestDto);
 
     Task<IEnumerable<PostsResponseDTO>> GetAllPosts();
+    Task<PostsResponseDTO> GetPostById(int id);
 }

@@ -30,4 +30,13 @@ public class PostsController: ControllerBase
         return Ok(postsResponseDtos);
     }
 
+    [HttpGet("{postId}")]
+    public async Task<IActionResult> GetPostById(int id)
+    {
+        PostsResponseDTO postsResponseDto = await _postsService.GetPostById(id);
+        return Ok(postsResponseDto);
+    }
+    
+    
+
 }

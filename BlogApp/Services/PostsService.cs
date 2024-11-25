@@ -34,4 +34,11 @@ public class PostsService: IPostsService
         IEnumerable<PostsResponseDTO> postsResponseDtos = _mapper.Map<IEnumerable<PostsResponseDTO>>(posts);
         return postsResponseDtos;
     }
+
+    public  async Task<PostsResponseDTO> GetPostById(int id)
+    {
+        Post post = await _postsRepository.GetPostById(id);
+        PostsResponseDTO postsResponseDto = _mapper.Map<PostsResponseDTO>(post);
+        return postsResponseDto;
+    }
 }

@@ -7,4 +7,5 @@ public interface IPostsRepository
     Task<Post> CreatePost(Post post);
 
     Task<IEnumerable<Post>> GetAllPosts();
+    Task<Post> GetPostById(int id);
 }

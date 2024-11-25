@@ -26,4 +26,10 @@ public class PostsRepository: IPostsRepository
         IEnumerable<Post> posts = await _context.Posts.ToListAsync();
         return posts;
     }
+
+    public async Task<Post> GetPostById(int id)
+    {
+        Post post = await _context.Posts.Include(p => p.Comments).FirstOrDefaultAsync(p => p.Id == id);
+        return post;
+    }
 }
