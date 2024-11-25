@@ -1,3 +1,5 @@
+using BlogApp.DTOs.Request;
+using BlogApp.DTOs.Response;
 using BlogApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,5 +15,12 @@ public class CommentsController: ControllerBase
     {
         _commentsService = commentsService;
     }
-    
+
+    [HttpPost]
+    public async Task<IActionResult> CreateComments(CommentsRequestDTO commentsRequestDto)
+    {
+        CommentsResponseDTO commentsResponseDto = await _commentsService.CreateComments(commentsRequestDto);
+        return Created("" , commentsResponseDto);
+    }
+
 }

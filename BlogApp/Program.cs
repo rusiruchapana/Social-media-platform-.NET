@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IPostsService , PostsService>();
 builder.Services.AddScoped<IPostsRepository , PostsRepository>();
+builder.Services.AddScoped<ICommentsService , CommentsService>();
+builder.Services.AddScoped<ICommentsRepository , CommentsRepository>();
 builder.Services.AddAutoMapper(typeof(Program));
 
 
