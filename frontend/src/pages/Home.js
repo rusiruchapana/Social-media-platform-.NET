@@ -9,7 +9,15 @@ function Home(){
 
     return(
         <div>
-            <h1>Blog App</h1>
+            <h1 style={{ 
+                textAlign: "center", 
+                color: "#333", 
+                fontSize: "24px", 
+                fontWeight: "bold", 
+                marginBottom: "20px" 
+            }}>
+                Blog App
+            </h1>
             <PostForm onPostAdded={refreshPage} />
             <PostList />
         </div>

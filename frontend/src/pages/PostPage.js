@@ -14,7 +14,15 @@ function PostPage(){
 
     return(
         <div>
-            <h2>Post Details</h2>
+            <h2 style={{ 
+                textAlign: "center", 
+                color: "#333", 
+                fontSize: "24px", 
+                fontWeight: "bold", 
+                marginBottom: "20px" 
+            }}>
+                Post Details
+            </h2>
             <CommentForm PostId={id} commentAdded={refreshComments} />
             <CommentList PostId={id} />
         </div>
