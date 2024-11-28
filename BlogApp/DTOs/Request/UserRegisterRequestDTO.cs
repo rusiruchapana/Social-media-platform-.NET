@@ -1,6 +1,6 @@
 namespace BlogApp.DTOs.Request;
 
-public class RegisterRequestDTO
+public class UserRegisterRequestDTO
 {
     public string Username { get; set; }
     public string Email { get; set; }
