@@ -17,3 +17,19 @@ export async function getCommentsByPostId(PostId){
 export async function deleteComment(PostId , Id){
     await axios.delete(`${API_BASE_URL}/${PostId}/comments/${Id}`);
 }
+
+// CommentService.js
+export async function updateComment(postId, commentId, commentsRequestDto) {
+    const response = await fetch(`${API_BASE_URL}/${postId}/comments/${commentId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(commentsRequestDto),
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to update comment");
+    }
+    return response.json();
+}
