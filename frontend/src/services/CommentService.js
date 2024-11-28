@@ -12,3 +12,8 @@ export async function getCommentsByPostId(PostId){
     const response = await axios.get(`${API_BASE_URL}/${PostId}`);
     return response.data;
 }
+
+
+export async function deleteComment(PostId , Id){
+    await axios.delete(`${API_BASE_URL}/${PostId}/comments/${Id}`);
+}

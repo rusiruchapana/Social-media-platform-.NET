@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCommentsByPostId } from "../../services/CommentService";
+import { deleteComment, getCommentsByPostId } from "../../services/CommentService";
 
 function CommentList({PostId}){
 
@@ -17,6 +17,19 @@ function CommentList({PostId}){
     } , [PostId]);
 
 
+    async function handleDelete(commentId){
+        const confirmed = window.confirm("Are you sure you want to delete this comment?");
+        if(confirmed){
+            try {
+                await deleteComment(PostId , commentId);
+                setComments(comments.filter((comment) => comment.id !== commentId));
+            } catch (error) {
+                console.error("Failed to delete comment:", error);
+            }
+        }
+    
+    }
+
 
 
     return(
@@ -26,10 +39,12 @@ function CommentList({PostId}){
             
             {comments.length > 0 ? (
                 comments.map((comment) => (
-                <div key={comment.id}>
-                    <p>{comment.text}</p>
-                    <button>Delete</button>
-                </div>
+                    <div key={comment.id} style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+                    <p style={{ flex: 1 }}>{comment.text}</p>
+                    <button  onClick={()=> handleDelete(comment.id)} style={{ marginLeft: "10px" }}>
+                      Delete
+                    </button>
+                  </div>
                 ))
             ) : (
                 <p>No comments available</p>
