@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace BlogApp.Controllers;
 
-public class UserLoginController
+[Route("api/[controller]")]
+[ApiController]
+public class UserLoginController: ControllerBase
 {
     
 }
