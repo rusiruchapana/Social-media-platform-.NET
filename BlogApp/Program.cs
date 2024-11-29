@@ -16,6 +16,8 @@ builder.Services.AddScoped<IPostsService , PostsService>();
 builder.Services.AddScoped<IPostsRepository , PostsRepository>();
 builder.Services.AddScoped<ICommentsService , CommentsService>();
 builder.Services.AddScoped<ICommentsRepository , CommentsRepository>();
+builder.Services.AddScoped<IUserRegisterService , UserRegisterService>();
+builder.Services.AddScoped<IUserRegisterRepository , UserRegisterRepository>();
 builder.Services.AddAutoMapper(typeof(Program));
 
 
