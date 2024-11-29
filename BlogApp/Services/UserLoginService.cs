@@ -1,6 +1,8 @@
+using BlogApp.Services.Interfaces;
+
 namespace BlogApp.Services;
 
-public class UserLoginService
+public class UserLoginService: IUserLoginService
 {
     
 }
