@@ -106,3 +106,4 @@ D:\Github projects\Social-media-platform-.NET\BlogApp\obj\Debug\net8.0\refint\Bl
 D:\Github projects\Social-media-platform-.NET\BlogApp\obj\Debug\net8.0\BlogApp.pdb
 D:\Github projects\Social-media-platform-.NET\BlogApp\obj\Debug\net8.0\BlogApp.genruntimeconfig.cache
 D:\Github projects\Social-media-platform-.NET\BlogApp\obj\Debug\net8.0\ref\BlogApp.dll
+D:\Github projects\Social-media-platform-.NET\BlogApp\bin\Debug\net8.0\BCrypt.Net-Next.dll

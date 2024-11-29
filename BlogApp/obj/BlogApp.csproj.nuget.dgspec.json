@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\umega\\.nuget\\packages\\",
         "outputPath": "D:\\Github projects\\Social-media-platform-.NET\\BlogApp\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\umega\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
@@ -46,6 +47,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
             },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
