@@ -1,3 +1,5 @@
+using BlogApp.DTOs.Request;
+using BlogApp.DTOs.Response;
 using BlogApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,4 +15,14 @@ public class UserRegisterController: ControllerBase
     {
         _userRegisterService = userRegisterService;
     }
+
+
+    [HttpPost]
+    public async Task<IActionResult> RegisterUser(UserRegisterRequestDTO userRegisterRequestDTO)
+    {
+        UserRegisterResponseDTO userRegisterResponseDto = await _userRegisterService.RegisterUser(userRegisterRequestDTO);
+        return Created("" , userRegisterResponseDto);
+    }
+
+
 }
