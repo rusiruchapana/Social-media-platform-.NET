@@ -3386,6 +3386,7 @@
       "packagesPath": "C:\\Users\\umega\\.nuget\\packages\\",
       "outputPath": "D:\\Github projects\\Social-media-platform-.NET\\BlogApp\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "C:\\Users\\umega\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
