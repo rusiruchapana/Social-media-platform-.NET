@@ -13,7 +13,6 @@
         "packagesPath": "C:\\Users\\umega\\.nuget\\packages\\",
         "outputPath": "D:\\Github projects\\Social-media-platform-.NET\\BlogApp\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\umega\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
@@ -87,6 +86,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.2.1, )"
             }
           },
           "imports": [

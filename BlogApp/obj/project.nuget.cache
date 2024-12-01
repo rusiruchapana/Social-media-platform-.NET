@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4IKs5prDipA=",
+  "dgSpecHash": "QXJ3Y8/ql10=",
   "success": true,
   "projectFilePath": "D:\\Github projects\\Social-media-platform-.NET\\BlogApp\\BlogApp.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,10 @@
     "C:\\Users\\umega\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\umega\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.2.1\\microsoft.identitymodel.abstractions.8.2.1.nupkg.sha512",
+    "C:\\Users\\umega\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.2.1\\microsoft.identitymodel.jsonwebtokens.8.2.1.nupkg.sha512",
+    "C:\\Users\\umega\\.nuget\\packages\\microsoft.identitymodel.logging\\8.2.1\\microsoft.identitymodel.logging.8.2.1.nupkg.sha512",
+    "C:\\Users\\umega\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.2.1\\microsoft.identitymodel.tokens.8.2.1.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
@@ -56,6 +60,7 @@
     "C:\\Users\\umega\\.nuget\\packages\\system.composition.hosting\\6.0.0\\system.composition.hosting.6.0.0.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\system.composition.runtime\\6.0.0\\system.composition.runtime.6.0.0.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\system.composition.typedparts\\6.0.0\\system.composition.typedparts.6.0.0.nupkg.sha512",
+    "C:\\Users\\umega\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.2.1\\system.identitymodel.tokens.jwt.8.2.1.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\system.reflection.metadata\\6.0.1\\system.reflection.metadata.6.0.1.nupkg.sha512",
     "C:\\Users\\umega\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
