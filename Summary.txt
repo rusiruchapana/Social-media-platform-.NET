@@ -10,3 +10,6 @@ https://chatgpt.com/share/67489456-db40-8008-b6e4-40216bf9735e
 
 //login
 https://chatgpt.com/share/674bdb91-53d0-8008-8ab9-ed996b37689b
+
+//login and register frontend
+https://chatgpt.com/share/674d3098-8be8-8008-ac2d-1e6103870853
