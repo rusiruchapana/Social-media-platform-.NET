@@ -17,11 +17,12 @@ public class UserLoginService: IUserLoginService
         _userLoginRepository = userLoginRepository;
         _jwtTokenGenerator = jwtTokenGenerator;
     }
+    
 
-    public async Task<UserLoginResponseDTO> Login(UserRegisterRequestDTO userRegisterRequestDto)
+    public async Task<UserLoginResponseDTO> Login(UserLoginRequestDTO userLoginRequestDto)
     {
-        User user = await _userLoginRepository.GetUserByEmail(userRegisterRequestDto.Email);
-        if (user == null || !BCrypt.Net.BCrypt.Verify(userRegisterRequestDto.PasswordHash, user.PasswordHash))
+        User user = await _userLoginRepository.GetUserByEmail(userLoginRequestDto.Email);
+        if (user == null || !BCrypt.Net.BCrypt.Verify(userLoginRequestDto.PasswordHash, user.PasswordHash))
             throw new Exception("Invalid email or password");
 
         var token = _jwtTokenGenerator.GenerateToken(user);

@@ -5,5 +5,5 @@ namespace BlogApp.Services.Interfaces;
 
 public interface IUserLoginService
 {
-    Task<UserLoginResponseDTO> Login(UserRegisterRequestDTO userRegisterRequestDto);
+    Task<UserLoginResponseDTO> Login(UserLoginRequestDTO userLoginRequestDto);
 }

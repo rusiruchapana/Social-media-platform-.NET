@@ -19,11 +19,11 @@ public class UserLoginController: ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(UserRegisterRequestDTO userRegisterRequestDto)
+    public async Task<IActionResult> Login(UserLoginRequestDTO userLoginRequestDto)
     {
         try
         {
-            UserLoginResponseDTO userLoginResponseDto = await _userLoginService.Login(userRegisterRequestDto);
+            UserLoginResponseDTO userLoginResponseDto = await _userLoginService.Login(userLoginRequestDto);
             return Ok(userLoginResponseDto);
         }
         catch (Exception e)
