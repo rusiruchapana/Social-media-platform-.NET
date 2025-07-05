@@ -8,7 +8,7 @@ namespace BlogApp.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[AllowAnonymous]
+
 public class UserLoginController: ControllerBase
 {
     private readonly IUserLoginService _userLoginService;
@@ -18,7 +18,8 @@ public class UserLoginController: ControllerBase
         _userLoginService = userLoginService;
     }
 
-    [HttpPost]
+    [HttpPost("login")]
+    [AllowAnonymous]
     public async Task<IActionResult> Login(UserLoginRequestDTO userLoginRequestDto)
     {
         try
@@ -31,6 +32,26 @@ public class UserLoginController: ControllerBase
             return Unauthorized(new { message = e.Message });
         }
     }
+
+    [HttpPost("logout")]
+    [Authorize]
+    public async Task<IActionResult> Logout()
+    {
+        try
+        {
+            var token = Request.Headers["Authorization"].ToString().Replace("Bearer", "").Trim();
+            await _userLoginService.LogoutUser(token);
+            return Ok("Logged out");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            Console.WriteLine(e.InnerException?.Message);
+            return StatusCode(500, "An error occurred while logging out.");
+        }
+    }
+
+
 
 
 }

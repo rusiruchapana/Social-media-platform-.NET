@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using BlogApp.Data;
 using BlogApp.Repositories;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IUserRegisterService , UserRegisterService>();
 builder.Services.AddScoped<IUserRegisterRepository , UserRegisterRepository>();
 builder.Services.AddScoped<IUserLoginService , UserLoginService>();
 builder.Services.AddScoped<IUserLoginRepository , UserLoginRepository>();
+builder.Services.AddScoped<IRevokedTokenRepository , RevokedTokenRepository>();
 builder.Services.AddAutoMapper(typeof(Program));
 
 
@@ -60,6 +62,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+        
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = async context =>
+            {
+                var token = context.SecurityToken as JwtSecurityToken;
+                if (token != null)
+                {
+                    var revokedTokenRepository = context.HttpContext.RequestServices.GetRequiredService<IRevokedTokenRepository>();
+                    var isRevoked = await revokedTokenRepository.IsTokenRevokedAsync(token.RawData);
+
+                    if (isRevoked)
+                    {
+                        context.Fail("This token has been revoked.");
+                    }
+                }
+            }
         };
         
     });

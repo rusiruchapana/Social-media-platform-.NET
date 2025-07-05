@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using BlogApp.DTOs.Request;
 using BlogApp.DTOs.Response;
 using BlogApp.Models;
@@ -11,11 +12,13 @@ public class UserLoginService: IUserLoginService
 {
     private readonly IUserLoginRepository _userLoginRepository;
     private readonly JwtTokenGenerator _jwtTokenGenerator;
+    private readonly IRevokedTokenRepository _revokedTokenRepository;
 
-    public UserLoginService(IUserLoginRepository userLoginRepository , JwtTokenGenerator jwtTokenGenerator)
+    public UserLoginService(IUserLoginRepository userLoginRepository , JwtTokenGenerator jwtTokenGenerator, IRevokedTokenRepository revokedTokenRepository)
     {
         _userLoginRepository = userLoginRepository;
         _jwtTokenGenerator = jwtTokenGenerator;
+        _revokedTokenRepository = revokedTokenRepository;
     }
     
 
@@ -35,5 +38,14 @@ public class UserLoginService: IUserLoginService
             Username = user.Username,
             Email = user.Email
         };
+    }
+
+    public async Task LogoutUser(string token)
+    {
+        var jwtTokenHandler = new JwtSecurityTokenHandler();
+        var jwtToken = jwtTokenHandler.ReadJwtToken(token);
+        var expiresAt = jwtToken.ValidTo;
+
+        await _revokedTokenRepository.AddRevokedToken(token , expiresAt);
     }
 }

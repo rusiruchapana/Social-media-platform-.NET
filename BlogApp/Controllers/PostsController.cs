@@ -8,7 +8,7 @@ namespace BlogApp.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+//[Authorize]
 public class PostsController: ControllerBase
 {
     private readonly IPostsService _postsService;
